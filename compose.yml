@@ -83,6 +83,7 @@ services:
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://rag_user:rag_password@postgres:5432/rag_db
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT=180
       - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=true
       - AIRFLOW_HOME=/opt/airflow
       # Environment variables for DAG tasks

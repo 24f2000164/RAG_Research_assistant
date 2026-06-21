@@ -12,14 +12,16 @@ sys.path.insert(0, "/opt/airflow")
 from sqlalchemy import text
 from src.db.factory import make_database
 from src.services.arxiv.factory import make_arxiv_client
-from src.services.metadata_fetcher import make_metadata_fetcher
-from src.services.pdf_parser.factory import make_pdf_parser_service
+
+
 
 logger = logging.getLogger(__name__)
 
 
 @lru_cache(maxsize=1)
 def get_cached_services() -> Tuple[Any, Any, Any, Any]:
+    from src.services.metadata_fetcher import make_metadata_fetcher
+    from src.services.pdf_parser.factory import make_pdf_parser_service
     """
     Get cached service instances using lru_cache for automatic memoization.
 
